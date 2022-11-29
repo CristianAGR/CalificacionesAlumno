@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">FinalAndroid</string>
+    <string name="nombreAlumno">Nombre de Alumno</string>
+    <string name="nombre">Nombre</string>
+    <string name="nombreMateria">Nombre de Materia</string>
+    <string name="materia">Materia</string>
+    <string name="cal1er">Calificación 1er parcial</string>
+    <string name="Cal2do">Calificación 2do parcial</string>
+    <string name="cal6">Calificación para pasar con 6</string>
+    <string name="cal10">Calificación para pasar con 10</string>
+    <string name="aun">Aún se puede</string>
+    <string name="yaNo">Ya no se logró</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="modificar">Modificar</string>
+    <string name="calcular">Calcular</string>
+    <string name="guardar">Guardar</string>
+</resources>
