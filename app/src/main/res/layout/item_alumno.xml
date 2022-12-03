@@ -33,11 +33,12 @@
 
     <ImageView
         android:id="@+id/ivAlumno"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="36dp"
-        android:scaleType="centerCrop"
+        android:layout_marginEnd="72dp"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imagen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
