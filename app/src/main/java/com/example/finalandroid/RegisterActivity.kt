@@ -15,6 +15,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun logica() {
+         val id = asignarValores()
+        // Envia valores a la siguiente activity
         btnCalcular.setOnClickListener {
             val intent = Intent(this,RequiredGradesActivity::class.java)
             val nombre = txtNombre.text.toString()
@@ -29,8 +31,24 @@ class RegisterActivity : AppCompatActivity() {
             intent.putExtra("cal2do", parcial2)
             intent.putExtra("cal6", calificacion6)
             intent.putExtra("cal10", calificacion10)
+            intent.putExtra("id", id)
             startActivity(intent)
         }
+    }
+
+    private fun asignarValores(): Int? {
+        // recibe valores de MainActivity
+        val bundle = intent.extras;
+        val id = bundle?.getInt("id")
+        val nombre = bundle?.getString("nombre")
+        val materia = bundle?.getString("materia")
+        val cal1er = bundle?.getDouble("cal1er")
+        val cal2do = bundle?.getDouble("cal2do")
+        txtNombre.setText(nombre)
+        txtMateria.setText(materia)
+        txtCal1.setText(cal1er.toString())
+        txtCal2.setText(cal2do.toString())
+        return id
     }
 
     // calcula cuanta calificacion se necesita para pasar la materia con 6 y con 10

@@ -57,6 +57,22 @@ class MainActivity : AppCompatActivity() {
         val adaptador = AdaptadorAlumnos(this, registros)
 
         lvAlumnos.adapter = adaptador
+        lvAlumnos.setOnItemClickListener{ parent, view, position, id ->
+            val item = parent.getItemAtPosition(position) as Alumno
+
+            val intent = Intent(this, RegisterActivity::class.java)
+
+            intent.putExtra("id", item.ID_ALUMNO)
+            intent.putExtra("nombre", item.NOMBRE)
+            intent.putExtra("materia", item.MATERIA)
+            intent.putExtra("cal1er", item.CAL1ER)
+            intent.putExtra("cal2do", item.CAL2DO)
+            intent.putExtra("cal6", item.CAL6)
+            intent.putExtra("cal10", item.CAL10)
+
+            startActivity(intent)
+
+        }
     }
 
 

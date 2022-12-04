@@ -18,6 +18,19 @@
         app:layout_constraintTop_toBottomOf="@+id/lblResultado"
         app:layout_constraintVertical_bias="0.662" />
 
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="84dp"
+        android:text="@string/eliminar"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblResultado"
+        app:layout_constraintVertical_bias="0.848" />
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
