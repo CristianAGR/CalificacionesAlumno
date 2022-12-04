@@ -17,10 +17,16 @@ class RegisterActivity : AppCompatActivity() {
     fun logica() {
         btnCalcular.setOnClickListener {
             val intent = Intent(this,RequiredGradesActivity::class.java)
+            val nombre = txtNombre.text.toString()
+            val materia = txtMateria.text.toString()
             val parcial1 = (txtCal1.text.toString().toDouble())*.2
             val parcial2 = (txtCal2.text.toString().toDouble())*.2
             var calificacion6 = calcular(parcial1,parcial2).get(0)
             var calificacion10 = calcular(parcial1,parcial2).get(1)
+            intent.putExtra("nombre", nombre)
+            intent.putExtra("materia", materia)
+            intent.putExtra("cal1er", parcial1)
+            intent.putExtra("cal2do", parcial2)
             intent.putExtra("cal6", calificacion6)
             intent.putExtra("cal10", calificacion10)
             startActivity(intent)

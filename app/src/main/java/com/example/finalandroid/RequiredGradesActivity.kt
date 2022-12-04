@@ -1,5 +1,6 @@
 package com.example.finalandroid
 
+import Modelo.AlumnosDataSource
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,10 @@ class RequiredGradesActivity : AppCompatActivity() {
     fun logica() {
         // recibe valores de MainActivity
         val bundle = intent.extras;
+        val nombre = bundle?.getString("nombre")
+        val materia = bundle?.getString("materia")
+        val cal1er = bundle?.getDouble("cal1er")
+        val cal2do = bundle?.getDouble("cal2do")
         val cal6 = bundle?.getDouble("cal6")
         val cal10 = bundle?.getDouble("cal10")
         val txtCali6 = findViewById<TextView>(R.id.txtCal6)
@@ -33,10 +38,21 @@ class RequiredGradesActivity : AppCompatActivity() {
 
 
         btnGuardar.setOnClickListener {
+            try {
+                guardar(nombre!!, materia!!, cal1er!!, cal2do!!, cal6!!, cal10!!)
+            } catch (ex: Exception) {
+
+            }
+
             val intent = Intent(this,MainActivity::class.java)
             //intent.putExtra("cal6", txtMonto.text.toString())
             //intent.putExtra("cal10", txtMonto.text.toString())
             startActivity(intent)
         }
+    }
+
+    fun guardar(nombre: String, materia: String, cal1er: Double, cal2do: Double, cal6: Double, cal10:Double) {
+        val datasource = AlumnosDataSource(this)
+        datasource.guardarAlumno(nombre,materia,cal1er,cal2do,cal6,cal10)
     }
 }
