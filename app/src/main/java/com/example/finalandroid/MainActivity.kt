@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.annotation.NonNull
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_alumno.view.*
 
@@ -67,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             _datos = datos
         }
 
+        // cargar el item de cada registro de SQLite
         @NonNull
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val inflater = convertView ?: LayoutInflater.from(context)
@@ -76,6 +78,12 @@ class MainActivity : AppCompatActivity() {
             if (currentEntity != null) {
                 inflater.txtNombre.text = currentEntity.NOMBRE
                 inflater.txtMateria.text = currentEntity.MATERIA
+                // Carga las imagenes de acuerdo al id del alumno
+                val url = "https://picsum.photos/300/200?image=${currentEntity.ID_ALUMNO}"
+                Glide.with(this.context)
+                    .load(url)
+                    .thumbnail(Glide.with(this.context).load(R.drawable.fotos))
+                    .into(inflater.ivAlumno)
             }
             return inflater
         }
