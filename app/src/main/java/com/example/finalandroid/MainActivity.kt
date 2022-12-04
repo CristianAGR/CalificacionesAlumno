@@ -11,12 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.annotation.NonNull
-import androidx.appcompat.widget.SearchView
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.finalandroid.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.activity_required_grades.*
 import kotlinx.android.synthetic.main.item_alumno.view.*
 
 class MainActivity : AppCompatActivity() {
@@ -57,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             )
             registros.add(columnas)
         }
+
         val adaptador = AdaptadorAlumnos(this, registros)
 
         lvAlumnos.adapter = adaptador
@@ -78,8 +74,8 @@ class MainActivity : AppCompatActivity() {
             val currentEntity = getItem(position)
 
             if (currentEntity != null) {
-                inflater.lblNombre.text = currentEntity.NOMBRE
-                inflater.lblMateria.text = currentEntity.MATERIA
+                inflater.txtNombre.text = currentEntity.NOMBRE
+                inflater.txtMateria.text = currentEntity.MATERIA
             }
             return inflater
         }

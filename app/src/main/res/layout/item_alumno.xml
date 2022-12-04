@@ -6,7 +6,7 @@
              android:layout_height="100dp">
 
     <TextView
-        android:id="@+id/lblNombre"
+        android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
-        android:id="@+id/lblMateria"
+        android:id="@+id/txtMateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -29,7 +29,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblNombre"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre"></TextView>
 
     <ImageView
         android:id="@+id/ivAlumno"

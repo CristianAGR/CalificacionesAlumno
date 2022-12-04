@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalAndroid</string>
+    <string name="app_name">RegistroAlumnos</string>
     <string name="nombreAlumno">Nombre de Alumno</string>
     <string name="nombre">Nombre</string>
     <string name="nombreMateria">Nombre de Materia</string>
