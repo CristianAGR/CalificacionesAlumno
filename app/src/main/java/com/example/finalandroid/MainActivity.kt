@@ -9,16 +9,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import androidx.annotation.NonNull
 import com.bumptech.glide.Glide
+import com.example.finalandroid.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_alumno.view.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    val registros = ArrayList<Alumno>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         logica()
         llenarInformacion()
     }
@@ -32,12 +37,53 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnSearch.setOnClickListener{
+            if(txtSearch.text.equals("") || txtSearch.text.isEmpty()) {
+                llenarInformacion()
+            } else {
+                buscarAlumno()
+            }
+            hideKeyboard()
+        }
+
+
     }
+    // esconder el teclado al dar click en viewRoot
+    private fun hideKeyboard(){
+        val imn: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imn.hideSoftInputFromWindow(binding.viewRoot.windowToken,0)
+    }
+
+    private fun buscarAlumno() {
+        val datasource = AlumnosDataSource(this)
+        registros.clear()
+        val cursor = datasource.buscarNombre(txtSearch.text.toString())
+
+        while(cursor.moveToNext()){
+            val columnas =  Alumno(
+                cursor.getInt(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getDouble(3),
+                cursor.getDouble(4),
+                cursor.getDouble(5),
+                cursor.getDouble(6),
+            )
+            registros.add(columnas)
+        }
+
+        val adaptador = AdaptadorAlumnos(this, registros)
+
+        lvAlumnos.adapter = adaptador
+        obtenerInfo()
+
+    }
+
     // configurar recyclerView
     private fun llenarInformacion() {
         val datasource = AlumnosDataSource(this)
 
-        val registros = ArrayList<Alumno>()
+        registros.clear()
         //Se esta llamando al método para traernos toda la información de la BD
         val cursor = datasource.consultarAlumnos()
 
@@ -57,6 +103,10 @@ class MainActivity : AppCompatActivity() {
         val adaptador = AdaptadorAlumnos(this, registros)
 
         lvAlumnos.adapter = adaptador
+        obtenerInfo()
+    }
+
+    private fun obtenerInfo() {
         lvAlumnos.setOnItemClickListener{ parent, view, position, id ->
             val item = parent.getItemAtPosition(position) as Alumno
 

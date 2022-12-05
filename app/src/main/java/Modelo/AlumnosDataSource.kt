@@ -28,6 +28,10 @@ class AlumnosDataSource (context: Context){
         return  database.rawQuery("select _id,nombre,materia,cal1er,cal2do,cal6,cal10 from $ALUMNOS_TABLE_NAME", null)
     }
 
+    fun buscarNombre(nombre: String): Cursor {
+        return  database.rawQuery("select _id,nombre,materia,cal1er,cal2do,cal6,cal10 from $ALUMNOS_TABLE_NAME where nombre='$nombre'", null)
+    }
+
     fun guardarAlumno(nombre: String, materia: String, cal1er: Double, cal2do: Double, cal6: Double, cal10: Double){
         val values = ContentValues()
         values.put(ColumnAlumnos.NOMBRE, nombre)
