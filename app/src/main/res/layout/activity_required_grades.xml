@@ -35,14 +35,11 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="89dp"
         android:layout_marginTop="112dp"
-        android:layout_marginEnd="90dp"
         android:text="@string/cal6"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,14 +61,11 @@
         android:id="@+id/txtCal6"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="101dp"
         android:background="@drawable/campos_borde"
         android:ems="10"
         android:inputType="numberDecimal"
         android:textIsSelectable="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -79,14 +73,11 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="123dp"
         android:text="@string/cal10"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCal6" />
 
@@ -94,14 +85,11 @@
         android:id="@+id/txtCal10"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
         android:background="@drawable/campos_borde"
         android:ems="10"
         android:inputType="numberDecimal"
         android:textIsSelectable="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
