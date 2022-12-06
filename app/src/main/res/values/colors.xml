@@ -10,7 +10,11 @@
 
     <color name="cian_500">#5DC1B9</color>
     <color name="cian_300">#8AE0DB</color>
+    <color name="cian_300_75">#C08AE0DB</color>
     <color name="cian_200">#B8F0ED</color>
     <color name="blue_600">#137FD9</color>
     <color name="blue_300">#2196F3</color>
+    <color name="blue_300_50">#802196F3</color>
+    <color name="blue_300_20">#332196F3</color>
+
 </resources>
