@@ -29,7 +29,8 @@ class AlumnosDataSource (context: Context){
     }
 
     fun buscarNombre(nombre: String): Cursor {
-        return  database.rawQuery("select _id,nombre,materia,cal1er,cal2do,cal6,cal10 from $ALUMNOS_TABLE_NAME where UPPER(nombre)=UPPER('$nombre')", null)
+        //return  database.rawQuery("select _id,nombre,materia,cal1er,cal2do,cal6,cal10 from $ALUMNOS_TABLE_NAME where UPPER(nombre)=UPPER('$nombre')", null)
+        return  database.rawQuery("select _id,nombre,materia,cal1er,cal2do,cal6,cal10 from $ALUMNOS_TABLE_NAME where instr (UPPER(nombre), UPPER('$nombre')) > 0", null)
     }
 
     fun guardarAlumno(nombre: String, materia: String, cal1er: Double, cal2do: Double, cal6: Double, cal10: Double){
